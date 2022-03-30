@@ -199,7 +199,9 @@ img {
 
 
 /* Show menu */
-
+.show-menu{
+  right: 0;
+}
 
 /* Change background header */
 

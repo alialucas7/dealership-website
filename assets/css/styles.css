@@ -109,6 +109,24 @@ img {
   overflow: hidden;
 }
 
+.shape{
+  background-color: hsla(219, 33%, 32%, .5);
+  filter: blur(112px);
+  border-radius: 50%;
+}
+.shape__big{
+  width: 400px;
+  height: 400px;
+}
+.shape__small{
+  width: 300px;
+  height: 300px;
+}
+.shape__smaller{
+  width: 180px;
+  height: 180px;
+  filter: blur(64px);
+}
 /*=============== HEADER & NAV ===============*/
 .header{
   width: 100%;
@@ -156,12 +174,12 @@ img {
 @media screen and (max-width: 767px){
   .nav__menu{
     position: fixed;
-    background-color: hsla(0, 0%, 100%, .1);
+    background-color: hsla(0, 0%, 25%, .1);
     top: 0;
     right: -100%;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(96px);
+    backdrop-filter: blur(25px);
     transition: .3s;
   }
 }
@@ -310,6 +328,19 @@ img {
  transition: .5s;
  animation: button 3s infinite;
 }
+.home .shape__big,
+.home .shape__small{
+  position: absolute;
+}
+.home .shape__big{
+  left: -9rem;
+  top: -4rem;
+}
+.home .shape__small{
+  right: -10rem;
+  bottom: 3rem;
+
+}
 
 
 /* Button animate */
@@ -334,7 +365,6 @@ img {
 }
 .button:hover{
   background-color: var(--first-color);
-   
 }
 
 /*=============== ABOUT ===============*/
@@ -376,8 +406,77 @@ img {
 
 
 /*=============== POPULAR ===============*/
+.popular__container{
+  padding-top: 1rem;
+}
 
+.popular__card{
+  position: relative;
+  width: 238px;
+  background-color: var(--container-color);
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
 
+.popular__card .shape__smaller{
+  position: absolute;
+  top: -2.5rem;
+  left: -2.5rem;
+}
+
+.popular__title,
+.popular__subtitle,
+.popular_img{
+  position: relative;
+}
+
+.popular__title{
+  font-size: var(--h2-font-size);
+  margin-bottom: .25rem;
+}
+
+.popular__subtitle{
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.popular__img{
+  width: 160px;
+  margin: .75rem 0 1.25rem 1.5rem;
+  transition: .3s;
+}
+
+.popular__data{
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: .5rem 1.25rem;
+  margin-bottom: 2rem;
+}
+.popular__data i{
+  font-size: 1rem;
+}
+.popular__price{
+  font-size: var(--h3-font-size);
+}
+.popular__button{
+  border: none;
+  outline: none;
+  padding: .75rem 1rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 1rem 0 1rem 0;
+  cursor: pointer;
+}
+.popular__button i{
+  font-size: 1.25rem;
+}
+.popular__card:hover .popular__img{
+  transform: translateY(-.25rem);
+}
 /* Swiper class */
 
 

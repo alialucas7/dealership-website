@@ -40,8 +40,8 @@ window.addEventListener('scroll', scrollHeader)
 /*=============== POPULAR SWIPER ===============*/
 let swiperPopular = new Swiper(".popular__container", {
     loop: true,
-    spaceBetween: 24,
-    slidesPreview: 'auto',
+    spaceBetween: 10,
+    slidesPerview: 2,
     grabCursor: true,
 
     pagination: {
@@ -52,13 +52,12 @@ let swiperPopular = new Swiper(".popular__container", {
        
         768: {
           slidesPerView: 3,
-        
         },
         1024: {
-        
-          spaceBetween: 42,
+            slidesPerView: 'auto',  
+          spaceBetween: 48,
         },
-      },
+    },
   });
  
 /*=============== MIXITUP FILTER FEATURED ===============*/
@@ -108,3 +107,9 @@ window.addEventListener('scroll', scrollUp)
        window.addEventListener('scroll', scrollActive)
 
 /*=============== SCROLL REVEAL ANIMATION ===============*/
+
+
+
+
+
+

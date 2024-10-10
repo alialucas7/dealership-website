@@ -132,7 +132,7 @@ img {
 /*carrito de compras */
 
 .nav__center {
-  margin: 0 auto; /* Esto asegura que el <div> del medio esté centrado */
+   /* Esto asegura que el <div> del medio esté centrado */
   font-size: 1.7rem;
   background: transparent;
   color: white;
@@ -150,18 +150,20 @@ img {
   z-index: var(--z-fixed);
 }
 
+
 .nav{
   height: var(--header-height);
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+ 
 }
 
 .nav__logo,
 .nav__toggle{
   color: var(--title-color);
-  display: inline-flex;
+  display: inline-flex; 
+  cursor: pointer;
 }
 
 .nav__logo{
@@ -789,6 +791,9 @@ img {
     margin-left: 1rem;
     margin-right: 1rem;
   }
+  .nav__logo{
+    display: none;
+  }
   .home__car{
     column-gap: 2rem;
    
@@ -806,9 +811,24 @@ img {
     gap: 2.5rem;
   }
 }
+@media screen and (max-width: 430px){
+  .container{
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  .nav__logo{
+    display: none;
+  }
+}  
+@media screen and (max-width: 575px){
 
+  .nav__logo{
+    display: none;
+  }
+} 
 /* For medium devices -- vista para disposiitivos medianos*/
 @media screen and (min-width: 576px){
+ 
   .about__group{
     width: 350px;
     justify-self: center;
@@ -842,7 +862,7 @@ img {
   .nav{
     height: calc(var(--header-height) + 1.5rem);
   }
-
+ 
   .nav__toggle,
   .nav__close{
     display: none;
@@ -869,6 +889,7 @@ img {
     margin-left: auto;
     margin-right: auto;
   }
+  
   .shape__big{
     width: 500px;
     height: 500px;

@@ -165,6 +165,13 @@ function cargarEventListeiner(){
     btnVaciar.addEventListener('click', () => {
         productosCarrito = []; //reseteado
         limpiarHTML();
+        sincronizarLocalStorage();
+    });
+
+    //localstorage
+    document.addEventListener('DOMContentLoaded', () => {
+        productosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        carritoHTML();
     });
 }
 
@@ -250,6 +257,9 @@ function carritoHTML(){
         //se grega dinamicamente esa ifno al carrito
         listaCarrito.appendChild(row);
     });
+
+    //se guarda la info del carrito en el local storage
+    sincronizarLocalStorage();
 }
 
 function limpiarHTML(){
@@ -258,4 +268,8 @@ function limpiarHTML(){
         listaCarrito.removeChild(listaCarrito.firstChild);
     }
     //listaCarrito.innerHTML = "";
+}
+
+function sincronizarLocalStorage(){
+    localStorage.setItem('carrito', JSON.stringify(productosCarrito));
 }

@@ -214,7 +214,9 @@ thead{
   padding: 1px;
 
 }
-
+table{
+  padding-bottom: 10px;
+}
 .mostrarCuadritoCart{
   display: block;
 }

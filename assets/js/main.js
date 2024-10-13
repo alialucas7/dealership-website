@@ -160,10 +160,17 @@ function cargarEventListeiner(){
 
     //Elimina un curso
     carrito.addEventListener('click', elimina_ONE_Producto);
+
+    //vacia carrito
+    btnVaciar.addEventListener('click', () => {
+        productosCarrito = []; //reseteado
+        limpiarHTML();
+    });
 }
 
 
 //subfunciones
+
 function elimina_ONE_Producto(e){
     if (e.target.classList.contains('bx','bx-x-circle')){
         
@@ -180,7 +187,7 @@ function elimina_ONE_Producto(e){
 
 function agregarProducto(e){
     e.preventDefault();
-    if (e.target.classList.contains('bx') || e.target.classList.contains('featured__button')){
+    if (e.target.classList.contains('bx','bx-cart-add') ){
         autoSeleccionado = e.target.parentElement.parentElement; 
         //console.log(e.target.parentElement.parentElement);
         leerDatosAuto(autoSeleccionado);

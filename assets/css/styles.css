@@ -145,6 +145,22 @@ img {
   cursor: pointer;
 }
 
+.btn_vaciarCart{
+  border: solid 1.5px var(--first-color-alt);
+  background: transparent;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 1px 2px 2px 1px;
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  align-items: center;
+  justify-content: center;
+}
+.btn_vaciarCart:hover{
+  background: var(--first-color);
+  
+}
+
 .btn_carrito:hover{
   color: var(--first-color);
 }

@@ -132,7 +132,123 @@ sr.reveal(`.featured__card, .logos__content`, { interval: 100})
 
 
 
+//Logica para el carrito
+let productosCarrito = [];
+
+
+/** funcion que muestra u oculta carrito*/
+let btn_cart = document.getElementById('btnCart');
+let hide_cuadritoCar = document.getElementById('cuadrito'); 
+btn_cart.addEventListener('click', toggleCart);
+function toggleCart() {
+    hide_cuadritoCar.classList.toggle('mostrarCuadritoCart');
+}
+
+
+const carrito = document.querySelector('#cuadrito');
+
+const listaCarrito = document.querySelector('#lista_carrito tbody');
+
+const btnVaciar = document.querySelector('#vaciar_carrito');
+
+const listaAutos = document.querySelector('#featured');
+
+cargarEventListeiner();
+
+function cargarEventListeiner(){
+    listaAutos.addEventListener('click', agregarProducto);
+
+    //Elimina un curso
+    carrito.addEventListener('click', elimina_ONE_Producto);
+}
+
+
+//subfunciones
+function elimina_ONE_Producto(e){
+    if (e.target.classList.contains('bx','bx-x-circle')){
+        
+        const idAuto =  e.target.getAttribute('data-id');
+
+        //si hay coincidencia lo elimina del array
+        productosCarrito = productosCarrito.filter(auto => auto.id !== idAuto);
+        //vuelve a imprimir el array
+        carritoHTML();
+        
+    }
+}
+
+
+function agregarProducto(e){
+    e.preventDefault();
+    if (e.target.classList.contains('bx') || e.target.classList.contains('featured__button')){
+        autoSeleccionado = e.target.parentElement.parentElement; 
+        //console.log(e.target.parentElement.parentElement);
+        leerDatosAuto(autoSeleccionado);
+    }
+    
+}
+
+function leerDatosAuto(p_auto){
+    //objeto
+    infoAuto={
+       id: p_auto.querySelector('.featured__button').getAttribute('data-id'),
+       marca: p_auto.querySelector('h1').textContent,
+       modelo: p_auto.querySelector('h3').textContent,
+       precio: p_auto.querySelector('.featured__price').textContent,
+
+       cantidad: 1
+    }
+
+    /**verifica primero si el producto ya se encuentra en el carrito (si esta solo aumenta cantidad)*/
+    const existe = productosCarrito.some(p_auto => p_auto.id == infoAuto.id);
+    
+    if (existe){
+        //map busca coincidencia dentro del array
+        const losAutos = productosCarrito.map(p_auto =>{
+            if (p_auto.id == infoAuto.id){
+                p_auto.cantidad++
+                return p_auto;
+            }else return p_auto
+        } );
+         //... significa q se carga de manera progresiva
+         productosCarrito = [... losAutos]
+    }else{
+         //... significa que cargque el arreglo de manera progresiva
+         productosCarrito = [... productosCarrito, infoAuto]
+    }
 
 
 
+   
+    
+    carritoHTML();
+}
 
+function carritoHTML(){
+    //para q no se muestren progresivamente (debe ser progresivo antes, porq es la manera de mostrar)
+    limpiarHTML();
+    productosCarrito.forEach(e =>{
+        const row = document.createElement('tr');
+
+        row.innerHTML = 
+        `
+            <th>${e.marca}</th>
+            <th>${e.modelo}</th>                
+            <th>${e.precio}</th>    
+            <th>${e.cantidad}</th>
+            <th><i class='bx bx-x-circle' data-id="${e.id}"></i></th>  
+            
+        `;
+
+        //se grega dinamicamente esa ifno al carrito
+        listaCarrito.appendChild(row);
+    });
+}
+
+function limpiarHTML(){
+    
+    while (listaCarrito.firstChild){
+        listaCarrito.removeChild(listaCarrito.firstChild);
+    }
+    //listaCarrito.innerHTML = "";
+}

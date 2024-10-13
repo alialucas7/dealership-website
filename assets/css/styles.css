@@ -130,14 +130,77 @@ img {
 /*=============== HEADER & NAV ===============*/
 
 /*carrito de compras */
+.carrito{ /*clase general*/
+  display: flex;
+}
 
-.nav__center {
+/*btn de carrito*/
+.btn_carrito {
    /* Esto asegura que el <div> del medio esté centrado */
   font-size: 1.7rem;
+  
   background: transparent;
   color: white;
   border-style: none;
   cursor: pointer;
+}
+
+.btn_carrito:hover{
+  color: var(--first-color);
+}
+
+.menu_navegacion{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.contenido_carrito{
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  width: 90%; /* El padre ocupa todo el ancho de la pantalla */
+  /*height: 100px;*/
+  background: red;
+  text-align: center;
+  z-index: 1000;
+}
+
+ .cuadrito{
+  
+
+  display: none; /*por defecto se oculta*/
+
+  position: absolute;  /*Posiciona al hijo dentro del padre */
+  right: 0;  /*Alinea al hijo al borde derecho */
+  /*background-color: var(--container-color);*/
+
+  z-index: 2000;
+  
+  /*fondo transparente*/
+  background-color: hsla(219, 4%, 4%, 0.5); /* Fondo semi-transparente */
+  backdrop-filter: blur(20px); /* Desenfoque del fondo */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidad para Safari */
+  border-radius: 10px;
+
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+.tabla_carrito{
+  width: 100%;
+}
+thead{
+  color: var(--first-color);
+}
+ tr, th{
+  padding: 1px;
+
+}
+
+.mostrarCuadritoCart{
+  display: block;
 }
 
 /*==============*/
@@ -162,7 +225,7 @@ img {
 .nav__logo,
 .nav__toggle{
   color: var(--title-color);
-  display: inline-flex; 
+  display: flex; 
   cursor: pointer;
 }
 
@@ -171,18 +234,22 @@ img {
   column-gap: .25rem;
   font-weight: var(--font-medium);
   transition: .3s;
+
 }
 
 .nav__logo i{
   font-size: 1.25rem;
+  
 }
 
 .nav__logo:hover{
   color: var(--first-color);
 }
 
+
 .nav__toggle{
-  font-size: 1.25rem;
+  
+  font-size: 1.7rem;
   cursor: pointer;
 }
 
@@ -820,15 +887,32 @@ img {
     display: none;
   }
 }  
+
+
 @media screen and (max-width: 575px){
 
   .nav__logo{
     display: none;
   }
+
+  /*cuando se haga responsive el carrito ocupa toda la pantalla*/
+  .cuadrito{
+    width: 100%;
+  
+  }
 } 
+
+
 /* For medium devices -- vista para disposiitivos medianos*/
 @media screen and (min-width: 576px){
- 
+  
+
+
+  .nav__toggle,
+  .nav__close{
+    display: none;
+  }
+
   .about__group{
     width: 350px;
     justify-self: center;
@@ -852,6 +936,13 @@ img {
   }
   .offer__data{
     margin-bottom: 4rem;
+  }
+}
+
+@media screen and (min-width: 640px){
+  .cuadrito{
+    font-size: 1rem;
+    width: 100%
   }
 }
 
@@ -882,9 +973,22 @@ img {
   .logos__container{
     gap: 4rem 8rem;
   }
+  
 }
+
+@media screen and (min-width: 820px){
+  .cuadrito{
+    
+    width: 100%
+  }
+}
+
 /* For large devices */
-@media screen and (min-width: 1040px){
+@media screen and (min-width: 1024px){
+  .cuadrito{
+    
+    width: 40%
+  }
   .container{
     margin-left: auto;
     margin-right: auto;

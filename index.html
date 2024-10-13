@@ -9,6 +9,9 @@
 
         <!--=============== REMIX ICONS ===============-->
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+        
+        <!--===== Box ICons==-->
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
         <!--=============== SWIPER CSS ===============-->
         <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
@@ -25,56 +28,126 @@
     <body>
         <!--==================== HEADER ====================-->
         <header class="header" id="header">
-            <nav class="nav container">
-                <a href="#home" class="nav__logo" >
-                    <i class="ri-steering-fill"></i>
-                    Lucas-Cars
+
+            <div class="menu_navegacion container">
+
+                <a href="#home" class="nav__logo container" >
+                            <i class="ri-steering-fill"></i>
+                            Lucas-Cars
                 </a>
-                
-                
-                <div class="nav__menu" id="nav-menu">
-                 
-                    <ul class="nav__list">
-                        <li class="nav__item">
-                            <a href="#home" class="nav__link active-link">Home</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#about" class="nav__link">About</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#popular" class="nav__link">Popular</a>
-                        </li>
-                        <li class="nav__item">
-                            <a href="#featured" class="nav__link">Featured</a>
-                        </li>
-                        
-                       
-                    </ul>
-                    
-                    <!--boton de cerrar-->
-                    <div class="nav__close" id="nav-close">
-                        <i class="ri-close-circle-fill"></i>
-                    </div>
-                    
 
-                </div>
-                <!-- togle buttom - boton de abrir menu-->
-                <div class="nav__toggle" id="nav-toggle">
-                    <i class="ri-menu-line"></i>
-                </div>
+                <nav class="nav container">
+                            
+                            
+                            
+                            <div class="nav__menu" id="nav-menu">
+                             
+                                <ul class="nav__list">
+                                    <li class="nav__item">
+                                        <a href="#home" class="nav__link active-link">Home</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="#about" class="nav__link">About</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="#popular" class="nav__link">Popular</a>
+                                    </li>
+                                    <li class="nav__item">
+                                        <a href="#featured" class="nav__link">Cars</a>
+                                    </li>
+                                    
+                                   
+                                </ul>
+                                
+                                <!--boton de cerrar-->
+                                <div class="nav__close" id="nav-close">
+                                    <i class="ri-close-circle-fill"></i>
+                                </div>
+                                
+            
+                            </div>
+                            <!-- togle buttom - boton de abrir menu-->
+                            <div class="nav__toggle" id="nav-toggle">
+                                <i class="ri-menu-line"></i>
+                            </div>
+            
+            
+                            
+                            
+                            
+                </nav>
 
-                <button class="nav__center"><i class="ri-shopping-cart-2-line"></i></button>
+                <div class="carrito container">
+                    <button class="btn_carrito" id="btnCart"><i class="ri-shopping-cart-2-line"></i></button>
+                    
+                </div>
+            </div>
+            
+
+
                 
-            </nav>
+           
+               
+                
+                
+           
+            
+            
+
+
+            
+
+
+
+           
         </header>
+       
+
+
+        
+
+
+
+
+
+
+
 
         <!--==================== MAIN ====================-->
         <main class="main">
+
+            <div class="contenido_carrito container">nhnh
+                <div class="cuadrito " id="cuadrito">
+                      Lista de Productos
+                    <table class="tabla_carrito" id="lista_carrito">
+                        <thead>
+                            <tr>
+                                <th>Marca</th>
+                                <th>Modelo</th>
+                                <th>Precio</th>
+                                <th>Cantidad</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                               
+                        </tbody>
+                    </table>
+                    <button id="vaciar_carrito" class="btn_vaciarCart">Vaciar Carrito</button>
+                    <button id="completo" class="btn_vaciarCart">Ver Completo</button>
+                </div>
+            </div>
+            
+
+
             <!--==================== HOME ====================-->
             <section class="home section" id="home">
                 <div class="shape shape__big"></div>
                 <div class="shape shape__small"></div>
                 <div class="home__container container grid">
+
+                    
+
                     <div class="home__data">
                         <h1 class="home__title">
                            Choose the Best Car 
@@ -323,57 +396,57 @@
                             <h1 class="featured__title">Tesla</h1>
                             <h3 class="featured_subtitle">Model X</h3>
                             <img src="assets/img/featured1.png" alt="" class="featured__img">
-                            <h3 class="featured__price">$98,900</h3>
-                            <button class="button featured__button">
-                                <i class="ri-shopping-cart-2-line"></i>
+                            <h3 class="featured__price" id="precio">$98,900</h3>
+                            <button class="button featured__button" data-id="1">
+                                    <i class='bx bx-cart-add'></i>
                             </button>
                         </article>
                          <!--2-->
-                         <article class="featured__card mix tesla">
+                         <article class="featured__card mix tesla" >
                             <div class="shape shape__smaller"></div>
 
                             <h1 class="featured__title">Tesla</h1>
                             <h3 class="featured_subtitle">Model 3</h3>
                             <img src="assets/img/featured2.png" alt="" class="featured__img">
                             <h3 class="featured__price">$45,900</h3>
-                            <button class="button featured__button">
-                                <i class="ri-shopping-cart-2-line"></i>
+                            <button class="button featured__button" data-id='2'>
+                                    <i class='bx bx-cart-add'></i>
                             </button>
                         </article>
                          <!--3-->
-                         <article class="featured__card mix audi">
+                         <article class="featured__card mix audi" >
                             <div class="shape shape__smaller"></div>
 
                             <h1 class="featured__title">Audi</h1>
                             <h3 class="featured_subtitle">E-tron</h3>
                             <img src="assets/img/featured3.png" alt="" class="featured__img">
                             <h3 class="featured__price">$175,900</h3>
-                            <button class="button featured__button">
-                                <i class="ri-shopping-cart-2-line"></i>
+                            <button class="button featured__button" data-id='3'>
+                                    <i class='bx bx-cart-add'></i>
                             </button>
                         </article>
                          <!--4-->
-                         <article class="featured__card mix porsche">
+                         <article class="featured__card mix porsche" >
                             <div class="shape shape__smaller"></div>
 
                             <h1 class="featured__title">Porsche</h1>
                             <h3 class="featured_subtitle">Boxster</h3>
                             <img src="assets/img/featured4.png" alt="" class="featured__img">
                             <h3 class="featured__price">$126,900</h3>
-                            <button class="button featured__button">
-                                <i class="ri-shopping-cart-2-line"></i>
+                            <button class="button featured__button" data-id='4'>
+                                    <i class='bx bx-cart-add'></i>
                             </button>
                         </article>
                          <!--5-->
-                         <article class="featured__card mix porsche">
+                         <article class="featured__card mix porsche" >
                             <div class="shape shape__smaller"></div>
 
                             <h1 class="featured__title">Porsche</h1>
                             <h3 class="featured_subtitle">Panamera</h3>
                             <img src="assets/img/featured5.png" alt="" class="featured__img">
                             <h3 class="featured__price">$126,900</h3>
-                            <button class="button featured__button">
-                                <i class="ri-shopping-cart-2-line"></i>
+                            <button class="button featured__button" data-id='5'>
+                                    <i class='bx bx-cart-add'></i>
                             </button>
                         </article>
                     </div>
@@ -448,8 +521,8 @@
                 </div>
            </div-->
            <span class="footer__copy">
-                &#169Desarrollado por: Alia Lucas Emanuel
-                <br>Idea: Bedimcode 
+                &#169by: Alia Lucas Emanuel<br>With Love
+                
            </span>
         </footer>
 

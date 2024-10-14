@@ -144,6 +144,8 @@ function toggleCart() {
     hide_cuadritoCar.classList.toggle('mostrarCuadritoCart');
 }
 
+//para mostrar notificacion y esconderla si esta vacio
+
 
 const carrito = document.querySelector('#cuadrito');
 
@@ -153,10 +155,14 @@ const btnVaciar = document.querySelector('#vaciar_carrito');
 
 const listaAutos = document.querySelector('#featured');
 
+const numerocarrito = document.querySelector('.notificacion');
+
 cargarEventListeiner();
 
 function cargarEventListeiner(){
     listaAutos.addEventListener('click', agregarProducto);
+
+ 
 
     //Elimina un curso
     carrito.addEventListener('click', elimina_ONE_Producto);
@@ -168,11 +174,18 @@ function cargarEventListeiner(){
         sincronizarLocalStorage();
     });
 
-    //localstorage
+    //localstorage (lee al iniciar)
     document.addEventListener('DOMContentLoaded', () => {
         productosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
         carritoHTML();
+        
+        //actualiza la cantidad en la notificacion del carrito
+        if(productosCarrito.length === 0){
+            ocultarNumeroNotificacion();
+        }else numerocarrito.innerText = productosCarrito.length;
     });
+
+  
 }
 
 
@@ -188,6 +201,7 @@ function elimina_ONE_Producto(e){
         //vuelve a imprimir el array
         carritoHTML();
         
+        
     }
 }
 
@@ -198,7 +212,13 @@ function agregarProducto(e){
         autoSeleccionado = e.target.parentElement.parentElement; 
         //console.log(e.target.parentElement.parentElement);
         leerDatosAuto(autoSeleccionado);
+
+        
+            mostrarNumeroNotificacion();
+        
     }
+
+    
     
 }
 
@@ -268,8 +288,27 @@ function limpiarHTML(){
         listaCarrito.removeChild(listaCarrito.firstChild);
     }
     //listaCarrito.innerHTML = "";
+
+    numerocarrito.innerText = 0;
+    ocultarNumeroNotificacion();
 }
 
 function sincronizarLocalStorage(){
     localStorage.setItem('carrito', JSON.stringify(productosCarrito));
 }
+
+function ocultarNumeroNotificacion(){
+  
+  numerocarrito.style.display = 'none';
+ 
+}
+
+function mostrarNumeroNotificacion(){
+    
+    numerocarrito.style.display = 'block';
+
+    numerocarrito.innerText = productosCarrito.length;
+  }
+
+
+

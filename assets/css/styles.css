@@ -138,12 +138,27 @@ img {
 .btn_carrito {
    /* Esto asegura que el <div> del medio esté centrado */
   font-size: 1.7rem;
-  
+  position: relative;
   background: transparent;
   color: white;
   border-style: none;
   cursor: pointer;
+  
+  padding-bottom: 0;
+  padding-top: 0;
 }
+.notificacion{
+  background: hsl(158, 80%, 30%);
+  border-radius: 50%;
+  position: absolute;
+  right: 0;
+  top: 15%;
+  padding-left: 3px;
+  padding-right: 3px; 
+  
+  font-size: 0.9rem;
+}
+
 
 .btn_vaciarCart{
   border: solid 1.5px var(--first-color-alt);

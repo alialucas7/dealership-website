@@ -178,11 +178,12 @@ function cargarEventListeiner(){
     document.addEventListener('DOMContentLoaded', () => {
         productosCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
         carritoHTML();
-        
+        mostrarNumeroNotificacion();
         //actualiza la cantidad en la notificacion del carrito
-        if(productosCarrito.length === 0){
+        if(productosCarrito.length == 0){
             ocultarNumeroNotificacion();
-        }else numerocarrito.innerText = productosCarrito.length;
+        }else 
+        numerocarrito.innerText = productosCarrito.length;
     });
 
   
@@ -208,7 +209,7 @@ function elimina_ONE_Producto(e){
 
 function agregarProducto(e){
     e.preventDefault();
-    if (e.target.classList.contains('bx','bx-cart-add') ){
+    if (e.target.classList.contains('bx') ){
         autoSeleccionado = e.target.parentElement.parentElement; 
         //console.log(e.target.parentElement.parentElement);
         leerDatosAuto(autoSeleccionado);

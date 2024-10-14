@@ -170,6 +170,7 @@ img {
   color: var(--text-color);
   align-items: center;
   justify-content: center;
+  
 }
 .btn_vaciarCart:hover{
   background: var(--first-color);
@@ -179,6 +180,7 @@ img {
 .btn_carrito:hover{
   color: var(--first-color);
 }
+
 
 .menu_navegacion{
   display: flex;
@@ -200,6 +202,7 @@ img {
 
  .cuadrito{
   
+  padding-bottom: 4%;
 
   display: none; /*por defecto se oculta*/
 
@@ -755,15 +758,19 @@ table{
 .featured__button{
   border: none;
   outline: none;
-  padding: .75rem 1rem;
+  padding: .60rem 1rem;
   position: absolute;
   right: 0;
   bottom: 0;
   border-radius: 1rem 0 1rem 0;
   cursor: pointer;
+ 
+}
+
 }
 .featured__button i{
-  font-size: 1.9rem;
+  font-size: 2rem;
+  
 }
 
 .featured__card:hover .featured__img{
